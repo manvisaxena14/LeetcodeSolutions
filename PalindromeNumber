@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        long reverse=0;
+        for(int i=x;i>0;i/=10)
+        {
+            reverse=reverse*10+i%10;        //stores last digit of remaining number
+        }
+        if(x==reverse)                      //palindrome==Yes
+            return true;
+        return false;
+    }
+};
