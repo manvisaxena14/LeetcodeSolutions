@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        char arr[s.size()];
+        int pos = 0;
+        for (char c: s) {
+            // adding part
+            if (c == '(' || c == '[' || c == '{') {
+                arr[pos++] = c;
+            }
+            // removing part
+            else if (pos && abs(arr[pos - 1] - c) < 3) 
+                pos--;
+            else 
+                return false;
+        }
+        // checking if all the parentheses are now 0
+        return !pos;
+    }
+};
